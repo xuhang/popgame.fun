@@ -45,130 +45,9 @@
     <script async custom-element="amp-auto-ads"
         src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
     </script>
-    <style>
-        :root {
-            --primary-bg: #1a1a1a;
-            --secondary-bg: #2d2d2d;
-            --accent-color: #00ffff;
-            --hover-color: #9146ff;
-        }
-        
-        /* 新增的性能优化和可访问性样式 */
-        .lazy-image {
-            transition: opacity 0.3s ease;
-            opacity: 0;
-        }
-        
-        .lazy-image.loaded {
-            opacity: 1;
-        }
-        
-        /* 焦点状态样式 */
-        :focus {
-            outline: 3px solid var(--accent-color);
-            outline-offset: 2px;
-        }
-        
-        /* 暗黑模式适配 */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary-bg: #1a1a1a;
-                --text-color: #ffffff;
-            }
-        }
-        
-        /* 减少动画 */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
-        
-        /* 社交分享按钮样式 */
-        .share-button {
-            transition: transform 0.2s ease;
-        }
-        
-        .share-button:hover {
-            transform: scale(1.1);
-        }
-        
-        .tooltip {
-            visibility: hidden;
-            position: absolute;
-            background: var(--secondary-bg);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-        }
-        
-        .share-button:hover .tooltip {
-            visibility: visible;
-        }
-
-        body {
-            background-color: var(--primary-bg);
-            color: white;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .game-title {
-            font-family: 'Press Start 2P', cursive;
-        }
-
-        .carousel-container {
-            height: 400px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-        }
-
-        .game-card {
-            background: var(--secondary-bg);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
-        }
-
-        .neon-button {
-            background: var(--accent-color);
-            color: var(--primary-bg);
-            transition: all 0.3s ease;
-            display: block;
-            text-align: center;
-        }
-
-        .neon-button:hover {
-            background: var(--hover-color);
-            box-shadow: 0 0 15px var(--hover-color);
-        }
-
-        .countdown {
-            font-family: 'Press Start 2P', cursive;
-            color: var(--accent-color);
-        }
-    </style>
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6736d7bd04dba600122bb4a8&product=inline-share-buttons&source=platform" async="async"></script>
+    
+    <link rel="stylesheet" href="./styles/popgame.css">
 
     <!-- 结构化数据 -->
     <script type="application/ld+json">
@@ -201,7 +80,18 @@
                     <a href="#games-for-you" class="text-gray-300 hover:text-cyan-400">GAMES FOR YOU</a>
                 </div>
                 <div class="flex items-center">
-                    <input type="search" placeholder="Searching..." class="px-4 py-2 bg-gray-800 rounded-lg text-white">
+                    <form action="https://www.google.com/search" method="get" class="flex items-center">
+                        <input type="hidden" name="sitesearch" value="popgame.fun">
+                        <input type="search" 
+                               name="q" 
+                               placeholder="Searching..." 
+                               class="px-4 py-2 bg-gray-800 rounded-l-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                               aria-label="Search games">
+                        <button type="submit" 
+                                class="bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-r-lg text-white">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -235,7 +125,6 @@
                 <div class="p-4">
                     <h3 class="font-bold mb-2">Apex Legends™</h3>
                     <p class="text-gray-400 text-sm">Master an ever-growing roster of diverse Legends, deep-tactical squad play, and bold, new innovations that go beyond the Battle Royale experience — all within a rugged world where anything goes. Welcome to the next evolution of Hero Shooter.</p>
-                    <!-- <button class="neon-button mt-4 px-4 py-2 rounded-full w-full">立即体验</button> -->
                     <a class="neon-button mt-4 px-4 py-2 rounded-full w-full" href="https://store.steampowered.com/app/1172470/Apex_Legends/" target="_blank">Try now</a>
                 </div>
             </div>
@@ -245,10 +134,19 @@
                 <div class="p-4">
                     <h3 class="font-bold mb-2">DRAGON QUEST III HD-2D Remake</h3>
                     <p class="text-gray-400 text-sm">DRAGON QUEST III HD-2D Remake is a stunning reimagining of the beloved masterpiece and narrative beginning to The Erdrick Trilogy.</p>
-                    <!-- <button class="neon-button mt-4 px-4 py-2 rounded-full w-full">立即体验</button> -->
                     <a class="neon-button mt-4 px-4 py-2 rounded-full w-full" href="https://store.steampowered.com/app/2701660/DRAGON_QUEST_III_HD2D_Remake/" target="_blank">Try now</a>
                 </div>
             </div>
+            <!-- 更多游戏卡片 -->
+            <div class="game-card rounded-lg overflow-hidden">
+                <img src="./images/maze-logo.png" alt="MAZE ESCAPER" class="w-full">
+                <div class="p-4">
+                    <h3 class="font-bold mb-2">MAZE ESCAPER</h3>
+                    <p class="text-gray-400 text-sm">YOU ARE IN A DANGEROUS MAZE, AND YOU ONLY HAVE A VAGUE MEMORY OF IT IN YOUR MIND. CAN YOU FIND A WAY OUT?</p>
+                    <a class="neon-button mt-4 px-4 py-2 rounded-full w-full" href="https://maze.popgame.fun" target="_blank">Try now</a>
+                </div>
+            </div>
+            <!-- 更多游戏卡片 -->
         </div>
     </section>
 
@@ -325,126 +223,8 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // 懒加载图片
-        document.addEventListener('DOMContentLoaded', function() {
-            const lazyImages = document.querySelectorAll('.lazy-image');
-            
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.add('loaded');
-                        observer.unobserve(img);
-                    }
-                });
-            });
-            
-            lazyImages.forEach(img => imageObserver.observe(img));
-        });
-
-        // 社交分享功能
-        function shareToTwitter() {
-            const text = encodeURIComponent('来看看这个超棒的游戏网站！');
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
-        }
-
-        function shareToFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-        }
-
-        function shareToYouTube() {
-            window.open('https://www.youtube.com/yourchannel', '_blank');
-        }
-
-        function shareToBluesky() {
-            // Bluesky的分享实现（具体实现取决于Bluesky的API）
-            const text = encodeURIComponent('发现了一个很棒的游戏网站！');
-            const url = encodeURIComponent(window.location.href);
-            // 这里需要根据Bluesky的具体API来实现
-            console.log('分享到Bluesky功能待实现');
-        }
-
-        // 性能优化：防抖函数
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // 性能优化：节流函数
-        function throttle(func, limit) {
-            let inThrottle;
-            return function(...args) {
-                if (!inThrottle) {
-                    func.apply(this, args);
-                    inThrottle = true;
-                    setTimeout(() => inThrottle = false, limit);
-                }
-            }
-        }
-
-        // 轮播图逻辑
-        const slides = document.querySelectorAll('.carousel-slide');
-        let currentSlide = 0;
-
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        // 自动轮播
-        setInterval(nextSlide, 5000);
-
-        // 倒计时逻辑
-        function updateCountdown() {
-            const countdowns = document.querySelectorAll('.countdown');
-            countdowns.forEach(countdown => {
-                let endTime = new Date(countdown.getAttribute('data-end-time'));
-                let now = new Date();
-                let diff = endTime - now;
-                if (diff <= 0) {
-                    countdown.textContent = 'EXPIRED';
-                    return;
-                } else {
-                    let hours = Math.floor(diff / 3600000);
-                    let minutes = Math.floor((diff % 3600000) / 60000);
-                    let seconds = Math.floor((diff % 60000) / 1000);
-                    seconds--;
-                    if (seconds < 0) {
-                        seconds = 59;
-                        minutes--;
-                        if (minutes < 0) {
-                            minutes = 59;
-                            hours--;
-                            if (hours < 0) {
-                                hours = 23;
-                            }
-                        }
-                    }
-                    
-                    countdown.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-                }
-            });
-        }
-
-        setInterval(updateCountdown, 1000);
-    </script>
+    <div class="sharethis-inline-share-buttons"></div>
+    <script src="./js/popgame.js"></script>
 </body>
 <amp-auto-ads type="adsense"
         data-ad-client="ca-pub-1501730606981885">
